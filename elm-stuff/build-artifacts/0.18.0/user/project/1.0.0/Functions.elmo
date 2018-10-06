@@ -1,0 +1,337 @@
+var _user$project$Functions$lastx = function (x) {
+	lastx:
+	while (true) {
+		var _p0 = x;
+		if (_p0.ctor === '[]') {
+			return 0;
+		} else {
+			if (_p0._1.ctor === '[]') {
+				return _p0._0;
+			} else {
+				var _v1 = _p0._1;
+				x = _v1;
+				continue lastx;
+			}
+		}
+	}
+};
+var _user$project$Functions$headx = function (x) {
+	return A2(
+		_elm_lang$core$Maybe$withDefault,
+		0,
+		_elm_lang$core$List$head(x));
+};
+var _user$project$Functions$tablear = function (m) {
+	var mates = function () {
+		var _p1 = m.sintaxis;
+		if (_p1.ctor === 'Simple') {
+			return _elm_lang$html$Html$text('');
+		} else {
+			return _elm_lang$html$Html$text('T');
+		}
+	}();
+	var subsup = function (x) {
+		var _p2 = m.sintaxis;
+		if (_p2.ctor === 'Simple') {
+			return A2(
+				_elm_lang$html$Html$sub,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(
+						_elm_lang$core$Basics$toString(x)),
+					_1: {ctor: '[]'}
+				});
+		} else {
+			return A2(
+				_elm_lang$html$Html$sup,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(
+						_elm_lang$core$Basics$toString(x)),
+					_1: {ctor: '[]'}
+				});
+		}
+	};
+	var doce = _elm_lang$core$List$length(m.serie);
+	var sigma11 = _user$project$Functions$lastx(m.serie);
+	var sigma0 = _user$project$Functions$headx(m.serie);
+	var matriz = A3(
+		_elm_lang$core$List$foldr,
+		F2(
+			function (x, z) {
+				return {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$core$List$map,
+						function (y) {
+							return A2(_elm_lang$core$Basics_ops['%'], (y + x) - sigma0, doce);
+						},
+						m.serie),
+					_1: z
+				};
+			}),
+		{ctor: '[]'},
+		A2(
+			_elm_lang$core$List$map,
+			function (x) {
+				return A2(_elm_lang$core$Basics_ops['%'], (0 - x) + (2 * sigma0), doce);
+			},
+			m.serie));
+	var numerito = function (x) {
+		var _p3 = m.numeracion;
+		if (_p3.ctor === 'Tradicional') {
+			return A2(_elm_lang$core$Basics_ops['%'], x - sigma0, doce);
+		} else {
+			return x;
+		}
+	};
+	var ries = function (x) {
+		var _p4 = m.numeracion;
+		if (_p4.ctor === 'Tradicional') {
+			return A2(_elm_lang$core$Basics_ops['%'], (x + (2 * sigma0)) - (2 * sigma11), doce);
+		} else {
+			return x;
+		}
+	};
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'overflow', _1: 'auto'},
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$table,
+				{
+					ctor: '::',
+					_0: _user$project$Styles$tableStyle,
+					_1: {ctor: '[]'}
+				},
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$tr,
+							{ctor: '[]'},
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								{
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$td,
+										{ctor: '[]'},
+										{ctor: '[]'}),
+									_1: {ctor: '[]'}
+								},
+								A2(
+									_elm_lang$core$List$map,
+									function (x) {
+										return A2(
+											_elm_lang$html$Html$td,
+											{
+												ctor: '::',
+												_0: _user$project$Styles$boldStyle,
+												_1: {ctor: '[]'}
+											},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('I'),
+												_1: {
+													ctor: '::',
+													_0: mates,
+													_1: {
+														ctor: '::',
+														_0: subsup(
+															numerito(x)),
+														_1: {ctor: '[]'}
+													}
+												}
+											});
+									},
+									m.serie))),
+						_1: {ctor: '[]'}
+					},
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						A2(
+							_elm_lang$core$List$map,
+							function (l) {
+								return A2(
+									_elm_lang$html$Html$tr,
+									{ctor: '[]'},
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										{
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$td,
+												{
+													ctor: '::',
+													_0: _user$project$Styles$boldStyle,
+													_1: {ctor: '[]'}
+												},
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('T'),
+													_1: {
+														ctor: '::',
+														_0: subsup(
+															numerito(
+																_user$project$Functions$headx(l))),
+														_1: {ctor: '[]'}
+													}
+												}),
+											_1: {ctor: '[]'}
+										},
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											A2(
+												_elm_lang$core$List$map,
+												function (_p5) {
+													return function (y) {
+														return A2(
+															_elm_lang$html$Html$td,
+															{
+																ctor: '::',
+																_0: _user$project$Styles$cellStyle,
+																_1: {ctor: '[]'}
+															},
+															{
+																ctor: '::',
+																_0: _elm_lang$html$Html$text(y),
+																_1: {ctor: '[]'}
+															});
+													}(
+														_elm_lang$core$Basics$toString(_p5));
+												},
+												l),
+											{
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$td,
+													{
+														ctor: '::',
+														_0: _user$project$Styles$boldStyle,
+														_1: {ctor: '[]'}
+													},
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html$text('R'),
+														_1: {
+															ctor: '::',
+															_0: mates,
+															_1: {
+																ctor: '::',
+																_0: subsup(
+																	numerito(
+																		_user$project$Functions$headx(l))),
+																_1: {ctor: '[]'}
+															}
+														}
+													}),
+												_1: {ctor: '[]'}
+											})));
+							},
+							matriz),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							{
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$tr,
+									{ctor: '[]'},
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										{
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$td,
+												{ctor: '[]'},
+												{ctor: '[]'}),
+											_1: {ctor: '[]'}
+										},
+										A2(
+											_elm_lang$core$List$map,
+											function (x) {
+												return A2(
+													_elm_lang$html$Html$td,
+													{
+														ctor: '::',
+														_0: _user$project$Styles$boldStyle,
+														_1: {ctor: '[]'}
+													},
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html$text('IR'),
+														_1: {
+															ctor: '::',
+															_0: mates,
+															_1: {
+																ctor: '::',
+																_0: subsup(
+																	numerito(x)),
+																_1: {ctor: '[]'}
+															}
+														}
+													});
+											},
+											m.serie))),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$tr,
+									{ctor: '[]'},
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										{
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$td,
+												{ctor: '[]'},
+												{ctor: '[]'}),
+											_1: {ctor: '[]'}
+										},
+										A2(
+											_elm_lang$core$List$map,
+											function (x) {
+												return A2(
+													_elm_lang$html$Html$td,
+													{
+														ctor: '::',
+														_0: _user$project$Styles$boldStyle,
+														_1: {ctor: '[]'}
+													},
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html$text('RI'),
+														_1: {
+															ctor: '::',
+															_0: mates,
+															_1: {
+																ctor: '::',
+																_0: subsup(
+																	ries(
+																		numerito(x))),
+																_1: {ctor: '[]'}
+															}
+														}
+													});
+											},
+											m.serie))),
+								_1: {ctor: '[]'}
+							})))),
+			_1: {ctor: '[]'}
+		});
+};
