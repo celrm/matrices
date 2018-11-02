@@ -1,4 +1,4 @@
-module Types exposing (..)
+module Types exposing (Model, Msg(..), Numeracion(..), Sintaxis(..))
 
 
 type Numeracion
@@ -20,9 +20,9 @@ type alias Model =
 
 
 type Msg
-  = Introducir String
-  | KeepLong String
-  | Aleatorio
-  | Permutar (List Int)
-  | SwitchNum Numeracion
-  | SwitchSin Sintaxis
+    = Introducir String
+    | KeepLong String
+    | Aleatorio
+    | Permutar (List Int)
+    | SwitchNum Numeracion
+    | SwitchSin Sintaxis

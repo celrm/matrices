@@ -3,25 +3,24 @@ module Info exposing (informacion)
 import Html exposing (Html)
 import Html.Attributes exposing (style)
 import Markdown
-
-import Types exposing (..)
 import Styles exposing (..)
+import Types exposing (..)
 
 
 informacion : Html Msg
 informacion =
-  Markdown.toHtml
-    [ textStyle "20px"
-    , style
-        [ ("text-align", "justify")
-        , ("width", "650px")
-        , ("margin-left", "auto")
-        , ("margin-right", "auto")
-        ]
-    ] texto
+    Markdown.toHtml
+        ( textStyle "20px" ++
+        [ style "text-align" "justify"
+        , style "width" "650px"
+        , style "margin-left" "auto"
+        , style "margin-right" "auto"
+        ])
+        texto
 
 
-texto = """
+texto =
+    """
 
   # Más información:
 
@@ -41,7 +40,7 @@ texto = """
 
   La matriz se lee en la dirección en la que aparece el nombre de la serie. Las series T se leen de izquierda a derecha, mientras que las series R de derecha a izquierda. Las series I se leen de arriba a abajo y las IR/RI de abajo a arriba.
 
-  ## <a name="Numeración"></a>¿Qué es la numeración?
+  ## ¿Qué es la numeración?
 
   La numeración es la forma de llamar a cada serie mediante un número para especificar cuántas veces se ha transpuesto con respecto a las demás series.
 
@@ -51,7 +50,7 @@ texto = """
 
   La numeración de __Tonos Absolutos__ surgió de la mano de George Perle en su libro _Twelve Tone Tonality_ (1977). Consiste en llamar a cada serie por la nota por la que comienza - T e I - o termina - R o IR: por ejemplo, la serie original será T4 si comienza por la nota Mi. No tiene una expresión matemática clara y no distingue entre IR y RI, pero es también conocida y usada en la literatura serialista.
 
-  ## <a name="Sintaxis"></a>¿Y la sintaxis?
+  ## ¿Y la sintaxis?
 
   Igual que la numeración, la sintaxis es la forma de llamar a cada serie, pero mediante letras que indican las funciones que se le han aplicado.
 
