@@ -1,5 +1,6 @@
 module View exposing (view)
 
+import Browser
 import Functions exposing (tablear)
 import Html exposing (..)
 import Html.Attributes exposing (checked, placeholder, href, name, style, type_)
@@ -153,9 +154,10 @@ bloquealeatorio =
         ]
 
 
-view : Model -> Html Msg
+view : Model -> Browser.Document Msg
 view model =
-    div generalStyle
+  (Browser.Document "Matrices"
+    [ div generalStyle
         [ header
         , tablear model
         , selectors
@@ -164,3 +166,5 @@ view model =
         , bloquealeatorio
         , informacion
         ]
+    ]
+  )

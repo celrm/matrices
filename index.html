@@ -6297,19 +6297,29 @@ var author$project$View$selectors = A3(
 					elm$html$Html$text(' Matemática')
 				]))
 		]));
+var elm$browser$Browser$Document = F2(
+	function (title, body) {
+		return {body: body, title: title};
+	});
 var author$project$View$view = function (model) {
 	return A2(
-		elm$html$Html$div,
-		author$project$Styles$generalStyle,
+		elm$browser$Browser$Document,
+		'Matrices',
 		_List_fromArray(
 			[
-				author$project$View$header,
-				author$project$Functions$tablear(model),
-				author$project$View$selectors,
-				author$project$View$originalrow(model.serie),
-				author$project$View$entrada,
-				author$project$View$bloquealeatorio,
-				author$project$Info$informacion
+				A2(
+				elm$html$Html$div,
+				author$project$Styles$generalStyle,
+				_List_fromArray(
+					[
+						author$project$View$header,
+						author$project$Functions$tablear(model),
+						author$project$View$selectors,
+						author$project$View$originalrow(model.serie),
+						author$project$View$entrada,
+						author$project$View$bloquealeatorio,
+						author$project$Info$informacion
+					]))
 			]));
 };
 var elm$browser$Browser$External = function (a) {
@@ -6534,8 +6544,8 @@ var elm$url$Url$fromString = function (str) {
 		elm$url$Url$Https,
 		A2(elm$core$String$dropLeft, 8, str)) : elm$core$Maybe$Nothing);
 };
-var elm$browser$Browser$element = _Browser_element;
-var author$project$Main$main = elm$browser$Browser$element(
+var elm$browser$Browser$document = _Browser_document;
+var author$project$Main$main = elm$browser$Browser$document(
 	{init: author$project$State$init, subscriptions: author$project$State$subscriptions, update: author$project$State$update, view: author$project$View$view});
 _Platform_export({'Main':{'init':author$project$Main$main(
 	elm$json$Json$Decode$succeed(_Utils_Tuple0))(0)}});}(this));

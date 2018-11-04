@@ -6,7 +6,7 @@ import View exposing (view)
 
 
 main =
-    Browser.element
+    Browser.document
         { init = init
         , update = update
         , subscriptions = subscriptions
