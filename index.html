@@ -5569,6 +5569,7 @@ var author$project$Functions$lastx = function (x) {
 		}
 	}
 };
+var author$project$Styles$bold = '#BBBBFF';
 var elm$json$Json$Decode$map = _Json_map1;
 var elm$json$Json$Decode$map2 = _Json_map2;
 var elm$json$Json$Decode$succeed = _Json_succeed;
@@ -5595,9 +5596,10 @@ var author$project$Styles$boldStyle = _List_fromArray(
 		A2(elm$html$Html$Attributes$style, 'border', '3px solid black'),
 		A2(elm$html$Html$Attributes$style, 'font-weight', 'bold'),
 		A2(elm$html$Html$Attributes$style, 'font-family', 'calibri'),
-		A2(elm$html$Html$Attributes$style, 'background-color', '#BBBBFF'),
+		A2(elm$html$Html$Attributes$style, 'background-color', author$project$Styles$bold),
 		A2(elm$html$Html$Attributes$style, 'box-shadow', '5px 7.5px')
 	]);
+var author$project$Styles$suave = '#EEEEFF';
 var author$project$Styles$cellStyle = _List_fromArray(
 	[
 		A2(elm$html$Html$Attributes$style, 'text-align', 'center'),
@@ -5606,7 +5608,7 @@ var author$project$Styles$cellStyle = _List_fromArray(
 		A2(elm$html$Html$Attributes$style, 'min-width', '50px'),
 		A2(elm$html$Html$Attributes$style, 'border', '1px solid black'),
 		A2(elm$html$Html$Attributes$style, 'font-family', 'calibri'),
-		A2(elm$html$Html$Attributes$style, 'background-color', '#EEEEFF')
+		A2(elm$html$Html$Attributes$style, 'background-color', author$project$Styles$suave)
 	]);
 var author$project$Styles$tableStyle = _List_fromArray(
 	[
@@ -5886,12 +5888,93 @@ var author$project$Info$informacion = A2(
 				A2(elm$html$Html$Attributes$style, 'margin-right', 'auto')
 			])),
 	author$project$Info$texto);
+var author$project$Styles$back = '#F9F9FF';
 var author$project$Styles$generalStyle = _List_fromArray(
 	[
 		A2(elm$html$Html$Attributes$style, 'text-align', 'center'),
-		A2(elm$html$Html$Attributes$style, 'background-color', '#F9F9FF'),
+		A2(elm$html$Html$Attributes$style, 'background-color', author$project$Styles$back),
 		A2(elm$html$Html$Attributes$style, 'overflow', 'auto')
 	]);
+var elm$json$Json$Encode$string = _Json_wrap;
+var elm$html$Html$Attributes$stringProperty = F2(
+	function (key, string) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			elm$json$Json$Encode$string(string));
+	});
+var elm$html$Html$Attributes$href = function (url) {
+	return A2(
+		elm$html$Html$Attributes$stringProperty,
+		'href',
+		_VirtualDom_noJavaScriptUri(url));
+};
+var author$project$Styles$aStyle = F2(
+	function (_this, ref) {
+		return _Utils_ap(
+			_List_fromArray(
+				[
+					elm$html$Html$Attributes$href(
+					_this ? '' : ref),
+					A2(elm$html$Html$Attributes$style, 'float', 'center'),
+					A2(
+					elm$html$Html$Attributes$style,
+					'background-color',
+					_this ? author$project$Styles$bold : author$project$Styles$suave),
+					A2(elm$html$Html$Attributes$style, 'color', 'black'),
+					A2(elm$html$Html$Attributes$style, 'text-align', 'center'),
+					A2(elm$html$Html$Attributes$style, 'text-decoration', 'none'),
+					A2(elm$html$Html$Attributes$style, 'padding', '15px 50px 15px 50px'),
+					A2(elm$html$Html$Attributes$style, 'border-width', '0px 3px 0px 3px'),
+					A2(elm$html$Html$Attributes$style, 'border-style', 'solid'),
+					A2(elm$html$Html$Attributes$style, 'border-color', author$project$Styles$back)
+				]),
+			author$project$Styles$textStyle('1em'));
+	});
+var elm$html$Html$a = _VirtualDom_node('a');
+var elm$html$Html$nav = _VirtualDom_node('nav');
+var author$project$Styles$navbar = function (_this) {
+	var _n0 = _Utils_Tuple3(_this === 1, _this === 2, _this === 3);
+	var one = _n0.a;
+	var two = _n0.b;
+	var three = _n0.c;
+	return A2(
+		elm$html$Html$nav,
+		_List_fromArray(
+			[
+				A2(elm$html$Html$Attributes$style, 'overflow', 'hidden'),
+				A2(elm$html$Html$Attributes$style, 'position', 'fixed'),
+				A2(elm$html$Html$Attributes$style, 'top', '0'),
+				A2(elm$html$Html$Attributes$style, 'width', '100%'),
+				A2(elm$html$Html$Attributes$style, 'border-collapse', 'collapse'),
+				A2(elm$html$Html$Attributes$style, 'padding', '10px'),
+				A2(elm$html$Html$Attributes$style, 'background-color', author$project$Styles$back)
+			]),
+		_List_fromArray(
+			[
+				A2(
+				elm$html$Html$a,
+				A2(author$project$Styles$aStyle, one, 'https://matrices.netlify.com/'),
+				_List_fromArray(
+					[
+						elm$html$Html$text('Matrices')
+					])),
+				A2(
+				elm$html$Html$a,
+				A2(author$project$Styles$aStyle, two, 'https://diagramas.netlify.com/'),
+				_List_fromArray(
+					[
+						elm$html$Html$text('Diagramas')
+					])),
+				A2(
+				elm$html$Html$a,
+				A2(author$project$Styles$aStyle, three, 'https://modificaciones.netlify.com/'),
+				_List_fromArray(
+					[
+						elm$html$Html$text('Modificaciones')
+					]))
+			]));
+};
 var author$project$Styles$littlebuttonStyle = _List_fromArray(
 	[
 		A2(elm$html$Html$Attributes$style, 'font-family', 'calibri'),
@@ -5928,14 +6011,6 @@ var author$project$Types$KeepLong = function (a) {
 var elm$html$Html$button = _VirtualDom_node('button');
 var elm$html$Html$input = _VirtualDom_node('input');
 var elm$html$Html$span = _VirtualDom_node('span');
-var elm$json$Json$Encode$string = _Json_wrap;
-var elm$html$Html$Attributes$stringProperty = F2(
-	function (key, string) {
-		return A2(
-			_VirtualDom_property,
-			key,
-			elm$json$Json$Encode$string(string));
-	});
 var elm$html$Html$Attributes$placeholder = elm$html$Html$Attributes$stringProperty('placeholder');
 var elm$virtual_dom$VirtualDom$Normal = function (a) {
 	return {$: 'Normal', a: a};
@@ -6172,7 +6247,6 @@ var author$project$View$doblecolumna = F3(
 						]))
 				]));
 	});
-var elm$html$Html$a = _VirtualDom_node('a');
 var elm$html$Html$br = _VirtualDom_node('br');
 var elm$html$Html$label = _VirtualDom_node('label');
 var elm$json$Json$Encode$bool = _Json_wrap;
@@ -6312,6 +6386,9 @@ var author$project$View$view = function (model) {
 				author$project$Styles$generalStyle,
 				_List_fromArray(
 					[
+						author$project$Styles$navbar(1),
+						A2(elm$html$Html$br, _List_Nil, _List_Nil),
+						A2(elm$html$Html$br, _List_Nil, _List_Nil),
 						author$project$View$header,
 						author$project$Functions$tablear(model),
 						author$project$View$selectors,

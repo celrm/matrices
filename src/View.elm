@@ -6,7 +6,6 @@ import Html exposing (..)
 import Html.Attributes exposing (checked, placeholder, href, name, style, type_)
 import Html.Events exposing (keyCode, on, onCheck, onClick, onInput, onMouseOver, targetValue)
 import Info exposing (informacion)
-import Json.Decode
 import Styles exposing (..)
 import Types exposing (..)
 
@@ -158,7 +157,10 @@ view : Model -> Browser.Document Msg
 view model =
   (Browser.Document "Matrices"
     [ div generalStyle
-        [ header
+        [ navbar 1
+        , br [] []
+        , br [] []
+        , header
         , tablear model
         , selectors
         , originalrow model.serie
