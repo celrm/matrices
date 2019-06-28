@@ -8,6 +8,7 @@ import Html.Events exposing (keyCode, on, onCheck, onClick, onInput, onMouseOver
 import Info exposing (informacion)
 import Styles exposing (..)
 import Types exposing (..)
+import Credits exposing (..)
 
 
 opciones : Html Msg
@@ -83,6 +84,8 @@ view model =
         , originalrow model.serie
         , entrada (onInput Introducir)
         , informacion
+        , br [] []
+        , credits
         ]
     ]
   )
